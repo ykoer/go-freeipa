@@ -97600,8 +97600,8 @@ func (out *Service) UnmarshalJSON(data []byte) error {
       }
     
   }
-  
-  if true {
+
+  if in.MemberofRole != nil {
     raw := in.ManagedbyHost
     plainV, plainOk := raw.(string)
     sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -97637,7 +97637,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
     
   }
   
-  if true {
+  if in.IpaallowedtoperformReadKeysUser != nil {
     raw := in.IpaallowedtoperformReadKeysUser
     plainV, plainOk := raw.(string)
     sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -97673,7 +97673,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
     
   }
   
-  if true {
+  if in.IpaallowedtoperformReadKeysGroup != nil {
     raw := in.IpaallowedtoperformReadKeysGroup
     plainV, plainOk := raw.(string)
     sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -97709,7 +97709,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
     
   }
   
-  if true {
+  if in.IpaallowedtoperformReadKeysHost != nil {
     raw := in.IpaallowedtoperformReadKeysHost
     plainV, plainOk := raw.(string)
     sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -97745,7 +97745,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
     
   }
   
-  if true {
+  if in.IpaallowedtoperformReadKeysHostgroup != nil {
     raw := in.IpaallowedtoperformReadKeysHostgroup
     plainV, plainOk := raw.(string)
     sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -97781,7 +97781,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
     
   }
   
-  if true {
+  if in.IpaallowedtoperformWriteKeysUser != nil {
     raw := in.IpaallowedtoperformWriteKeysUser
     plainV, plainOk := raw.(string)
     sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -97817,7 +97817,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
     
   }
   
-  if true {
+  if in.IpaallowedtoperformWriteKeysGroup != nil {
     raw := in.IpaallowedtoperformWriteKeysGroup
     plainV, plainOk := raw.(string)
     sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -97853,7 +97853,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
     
   }
   
-  if true {
+  if in.IpaallowedtoperformWriteKeysHost != nil {
     raw := in.IpaallowedtoperformWriteKeysHost
     plainV, plainOk := raw.(string)
     sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -97889,7 +97889,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
     
   }
   
-  if true {
+  if in.IpaallowedtoperformWriteKeysHostgroup != nil {
     raw := in.IpaallowedtoperformWriteKeysHostgroup
     plainV, plainOk := raw.(string)
     sliceWrapperV, sliceWrapperOk := raw.([]interface{})

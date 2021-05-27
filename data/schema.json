@@ -54686,46 +54686,55 @@
               "label": "Keytab"
             },
             {
+              "required": false,
               "type": "str",
               "name": "managedby_host",
               "label": "Managed by"
             },
             {
+              "required": false,
               "type": "str",
               "name": "ipaallowedtoperform_read_keys_user",
               "label": "Users allowed to retrieve keytab"
             },
             {
+              "required": false,
               "type": "str",
               "name": "ipaallowedtoperform_read_keys_group",
               "label": "Groups allowed to retrieve keytab"
             },
             {
+              "required": false,
               "type": "str",
               "name": "ipaallowedtoperform_read_keys_host",
               "label": "Hosts allowed to retrieve keytab"
             },
             {
+              "required": false,
               "type": "str",
               "name": "ipaallowedtoperform_read_keys_hostgroup",
               "label": "Host Groups allowed to retrieve keytab"
             },
             {
+              "required": false,
               "type": "str",
               "name": "ipaallowedtoperform_write_keys_user",
               "label": "Users allowed to create keytab"
             },
             {
+              "required": false,
               "type": "str",
               "name": "ipaallowedtoperform_write_keys_group",
               "label": "Groups allowed to create keytab"
             },
             {
+              "required": false,
               "type": "str",
               "name": "ipaallowedtoperform_write_keys_host",
               "label": "Hosts allowed to create keytab"
             },
             {
+              "required": false,
               "type": "str",
               "name": "ipaallowedtoperform_write_keys_hostgroup",
               "label": "Host Groups allowed to create keytab"
