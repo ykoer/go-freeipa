@@ -98158,49 +98158,49 @@ type Service struct {
 	Subject
 
 	*/
-	Subject string `json:"subject,omitempty"`
+	Subject *string `json:"subject,omitempty"`
 
 	/*
 	Serial Number
 
 	*/
-	SerialNumber string `json:"serial_number,omitempty"`
+	SerialNumber *string `json:"serial_number,omitempty"`
 
 	/*
 	Serial Number (hex)
 
 	*/
-	SerialNumberHex string `json:"serial_number_hex,omitempty"`
+	SerialNumberHex *string `json:"serial_number_hex,omitempty"`
 
 	/*
 	Issuer
 
 	*/
-	Issuer string `json:"issuer,omitempty"`
+	Issuer *string `json:"issuer,omitempty"`
 
 	/*
 	Not Before
 
 	*/
-	ValidNotBefore string `json:"valid_not_before,omitempty"`
+	ValidNotBefore *string `json:"valid_not_before,omitempty"`
 
 	/*
 	Not After
 
 	*/
-	ValidNotAfter string `json:"valid_not_after,omitempty"`
+	ValidNotAfter *string `json:"valid_not_after,omitempty"`
 
 	/*
 	Fingerprint (SHA1)
 
 	*/
-	Sha1Fingerprint string `json:"sha1_fingerprint,omitempty"`
+	Sha1Fingerprint *string `json:"sha1_fingerprint,omitempty"`
 
 	/*
 	Fingerprint (SHA256)
 
 	*/
-	Sha256Fingerprint string `json:"sha256_fingerprint,omitempty"`
+	Sha256Fingerprint *string `json:"sha256_fingerprint,omitempty"`
 
 	/*
 	Revocation reason
@@ -98254,55 +98254,55 @@ type Service struct {
 	Managed by
 
 	*/
-	ManagedbyHost string `json:"managedby_host,omitempty"`
+	ManagedbyHost *string `json:"managedby_host,omitempty"`
 
 	/*
 	Users allowed to retrieve keytab
 
 	*/
-	IpaallowedtoperformReadKeysUser string `json:"ipaallowedtoperform_read_keys_user,omitempty"`
+	IpaallowedtoperformReadKeysUser *string `json:"ipaallowedtoperform_read_keys_user,omitempty"`
 
 	/*
 	Groups allowed to retrieve keytab
 
 	*/
-	IpaallowedtoperformReadKeysGroup string `json:"ipaallowedtoperform_read_keys_group,omitempty"`
+	IpaallowedtoperformReadKeysGroup *string `json:"ipaallowedtoperform_read_keys_group,omitempty"`
 
 	/*
 	Hosts allowed to retrieve keytab
 
 	*/
-	IpaallowedtoperformReadKeysHost string `json:"ipaallowedtoperform_read_keys_host,omitempty"`
+	IpaallowedtoperformReadKeysHost *string `json:"ipaallowedtoperform_read_keys_host,omitempty"`
 
 	/*
 	Host Groups allowed to retrieve keytab
 
 	*/
-	IpaallowedtoperformReadKeysHostgroup string `json:"ipaallowedtoperform_read_keys_hostgroup,omitempty"`
+	IpaallowedtoperformReadKeysHostgroup *string `json:"ipaallowedtoperform_read_keys_hostgroup,omitempty"`
 
 	/*
 	Users allowed to create keytab
 
 	*/
-	IpaallowedtoperformWriteKeysUser string `json:"ipaallowedtoperform_write_keys_user,omitempty"`
+	IpaallowedtoperformWriteKeysUser *string `json:"ipaallowedtoperform_write_keys_user,omitempty"`
 
 	/*
 	Groups allowed to create keytab
 
 	*/
-	IpaallowedtoperformWriteKeysGroup string `json:"ipaallowedtoperform_write_keys_group,omitempty"`
+	IpaallowedtoperformWriteKeysGroup *string `json:"ipaallowedtoperform_write_keys_group,omitempty"`
 
 	/*
 	Hosts allowed to create keytab
 
 	*/
-	IpaallowedtoperformWriteKeysHost string `json:"ipaallowedtoperform_write_keys_host,omitempty"`
+	IpaallowedtoperformWriteKeysHost *string `json:"ipaallowedtoperform_write_keys_host,omitempty"`
 
 	/*
 	Host Groups allowed to create keytab
 
 	*/
-	IpaallowedtoperformWriteKeysHostgroup string `json:"ipaallowedtoperform_write_keys_hostgroup,omitempty"`
+	IpaallowedtoperformWriteKeysHostgroup *string `json:"ipaallowedtoperform_write_keys_hostgroup,omitempty"`
 }
 
 func (t *Service) String() string {
@@ -98480,7 +98480,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 
 	}
 
-	if true {
+	if in.Subject != nil {
 		raw := in.Subject
 		plainV, plainOk := raw.(string)
 		sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -98502,13 +98502,14 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 		}
 
 		if plainOk {
-			out.Subject = plainV
+			out.Subject = &plainV
 		} else if sliceOk {
 
-			if len(sliceV) != 1 {
-				return fmt.Errorf("unexpected value for field Subject: %v; expected exactly one element", raw)
+			if len(sliceV) == 1 {
+				out.Subject = &sliceV[0]
+			} else if len(sliceV) > 1 {
+				return fmt.Errorf("unexpected value for field Subject: %v; expected at most one element", raw)
 			}
-			out.Subject = sliceV[0]
 
 		} else {
 			return fmt.Errorf("unexpected value for field Subject: %v (%v)", raw, reflect.TypeOf(raw))
@@ -98516,7 +98517,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 
 	}
 
-	if true {
+	if in.SerialNumber != nil {
 		raw := in.SerialNumber
 		plainV, plainOk := raw.(string)
 		sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -98538,13 +98539,14 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 		}
 
 		if plainOk {
-			out.SerialNumber = plainV
+			out.SerialNumber = &plainV
 		} else if sliceOk {
 
-			if len(sliceV) != 1 {
-				return fmt.Errorf("unexpected value for field SerialNumber: %v; expected exactly one element", raw)
+			if len(sliceV) == 1 {
+				out.SerialNumber = &sliceV[0]
+			} else if len(sliceV) > 1 {
+				return fmt.Errorf("unexpected value for field SerialNumber: %v; expected at most one element", raw)
 			}
-			out.SerialNumber = sliceV[0]
 
 		} else {
 			return fmt.Errorf("unexpected value for field SerialNumber: %v (%v)", raw, reflect.TypeOf(raw))
@@ -98552,7 +98554,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 
 	}
 
-	if true {
+	if in.SerialNumberHex != nil {
 		raw := in.SerialNumberHex
 		plainV, plainOk := raw.(string)
 		sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -98574,13 +98576,14 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 		}
 
 		if plainOk {
-			out.SerialNumberHex = plainV
+			out.SerialNumberHex = &plainV
 		} else if sliceOk {
 
-			if len(sliceV) != 1 {
-				return fmt.Errorf("unexpected value for field SerialNumberHex: %v; expected exactly one element", raw)
+			if len(sliceV) == 1 {
+				out.SerialNumberHex = &sliceV[0]
+			} else if len(sliceV) > 1 {
+				return fmt.Errorf("unexpected value for field SerialNumberHex: %v; expected at most one element", raw)
 			}
-			out.SerialNumberHex = sliceV[0]
 
 		} else {
 			return fmt.Errorf("unexpected value for field SerialNumberHex: %v (%v)", raw, reflect.TypeOf(raw))
@@ -98588,7 +98591,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 
 	}
 
-	if true {
+	if in.Issuer != nil {
 		raw := in.Issuer
 		plainV, plainOk := raw.(string)
 		sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -98610,13 +98613,14 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 		}
 
 		if plainOk {
-			out.Issuer = plainV
+			out.Issuer = &plainV
 		} else if sliceOk {
 
-			if len(sliceV) != 1 {
-				return fmt.Errorf("unexpected value for field Issuer: %v; expected exactly one element", raw)
+			if len(sliceV) == 1 {
+				out.Issuer = &sliceV[0]
+			} else if len(sliceV) > 1 {
+				return fmt.Errorf("unexpected value for field Issuer: %v; expected at most one element", raw)
 			}
-			out.Issuer = sliceV[0]
 
 		} else {
 			return fmt.Errorf("unexpected value for field Issuer: %v (%v)", raw, reflect.TypeOf(raw))
@@ -98624,7 +98628,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 
 	}
 
-	if true {
+	if in.ValidNotBefore != nil {
 		raw := in.ValidNotBefore
 		plainV, plainOk := raw.(string)
 		sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -98646,13 +98650,14 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 		}
 
 		if plainOk {
-			out.ValidNotBefore = plainV
+			out.ValidNotBefore = &plainV
 		} else if sliceOk {
 
-			if len(sliceV) != 1 {
-				return fmt.Errorf("unexpected value for field ValidNotBefore: %v; expected exactly one element", raw)
+			if len(sliceV) == 1 {
+				out.ValidNotBefore = &sliceV[0]
+			} else if len(sliceV) > 1 {
+				return fmt.Errorf("unexpected value for field ValidNotBefore: %v; expected at most one element", raw)
 			}
-			out.ValidNotBefore = sliceV[0]
 
 		} else {
 			return fmt.Errorf("unexpected value for field ValidNotBefore: %v (%v)", raw, reflect.TypeOf(raw))
@@ -98660,7 +98665,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 
 	}
 
-	if true {
+	if in.ValidNotAfter != nil {
 		raw := in.ValidNotAfter
 		plainV, plainOk := raw.(string)
 		sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -98682,13 +98687,14 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 		}
 
 		if plainOk {
-			out.ValidNotAfter = plainV
+			out.ValidNotAfter = &plainV
 		} else if sliceOk {
 
-			if len(sliceV) != 1 {
-				return fmt.Errorf("unexpected value for field ValidNotAfter: %v; expected exactly one element", raw)
+			if len(sliceV) == 1 {
+				out.ValidNotAfter = &sliceV[0]
+			} else if len(sliceV) > 1 {
+				return fmt.Errorf("unexpected value for field ValidNotAfter: %v; expected at most one element", raw)
 			}
-			out.ValidNotAfter = sliceV[0]
 
 		} else {
 			return fmt.Errorf("unexpected value for field ValidNotAfter: %v (%v)", raw, reflect.TypeOf(raw))
@@ -98696,7 +98702,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 
 	}
 
-	if true {
+	if in.Sha1Fingerprint != nil {
 		raw := in.Sha1Fingerprint
 		plainV, plainOk := raw.(string)
 		sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -98718,13 +98724,14 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 		}
 
 		if plainOk {
-			out.Sha1Fingerprint = plainV
+			out.Sha1Fingerprint = &plainV
 		} else if sliceOk {
 
-			if len(sliceV) != 1 {
-				return fmt.Errorf("unexpected value for field Sha1Fingerprint: %v; expected exactly one element", raw)
+			if len(sliceV) == 1 {
+				out.Sha1Fingerprint = &sliceV[0]
+			} else if len(sliceV) > 1 {
+				return fmt.Errorf("unexpected value for field Sha1Fingerprint: %v; expected at most one element", raw)
 			}
-			out.Sha1Fingerprint = sliceV[0]
 
 		} else {
 			return fmt.Errorf("unexpected value for field Sha1Fingerprint: %v (%v)", raw, reflect.TypeOf(raw))
@@ -98732,7 +98739,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 
 	}
 
-	if true {
+	if in.Sha256Fingerprint != nil {
 		raw := in.Sha256Fingerprint
 		plainV, plainOk := raw.(string)
 		sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -98754,13 +98761,14 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 		}
 
 		if plainOk {
-			out.Sha256Fingerprint = plainV
+			out.Sha256Fingerprint = &plainV
 		} else if sliceOk {
 
-			if len(sliceV) != 1 {
-				return fmt.Errorf("unexpected value for field Sha256Fingerprint: %v; expected exactly one element", raw)
+			if len(sliceV) == 1 {
+				out.Sha256Fingerprint = &sliceV[0]
+			} else if len(sliceV) > 1 {
+				return fmt.Errorf("unexpected value for field Sha256Fingerprint: %v; expected at most one element", raw)
 			}
-			out.Sha256Fingerprint = sliceV[0]
 
 		} else {
 			return fmt.Errorf("unexpected value for field Sha256Fingerprint: %v (%v)", raw, reflect.TypeOf(raw))
@@ -99049,7 +99057,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 
 	}
 
-	if true {
+	if in.ManagedbyHost != nil {
 		raw := in.ManagedbyHost
 		plainV, plainOk := raw.(string)
 		sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -99071,13 +99079,14 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 		}
 
 		if plainOk {
-			out.ManagedbyHost = plainV
+			out.ManagedbyHost = &plainV
 		} else if sliceOk {
 
-			if len(sliceV) != 1 {
-				return fmt.Errorf("unexpected value for field ManagedbyHost: %v; expected exactly one element", raw)
+			if len(sliceV) == 1 {
+				out.ManagedbyHost = &sliceV[0]
+			} else if len(sliceV) > 1 {
+				return fmt.Errorf("unexpected value for field ManagedbyHost: %v; expected at most one element", raw)
 			}
-			out.ManagedbyHost = sliceV[0]
 
 		} else {
 			return fmt.Errorf("unexpected value for field ManagedbyHost: %v (%v)", raw, reflect.TypeOf(raw))
@@ -99085,7 +99094,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 
 	}
 
-	if true {
+	if in.IpaallowedtoperformReadKeysUser != nil {
 		raw := in.IpaallowedtoperformReadKeysUser
 		plainV, plainOk := raw.(string)
 		sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -99107,13 +99116,14 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 		}
 
 		if plainOk {
-			out.IpaallowedtoperformReadKeysUser = plainV
+			out.IpaallowedtoperformReadKeysUser = &plainV
 		} else if sliceOk {
 
-			if len(sliceV) != 1 {
-				return fmt.Errorf("unexpected value for field IpaallowedtoperformReadKeysUser: %v; expected exactly one element", raw)
+			if len(sliceV) == 1 {
+				out.IpaallowedtoperformReadKeysUser = &sliceV[0]
+			} else if len(sliceV) > 1 {
+				return fmt.Errorf("unexpected value for field IpaallowedtoperformReadKeysUser: %v; expected at most one element", raw)
 			}
-			out.IpaallowedtoperformReadKeysUser = sliceV[0]
 
 		} else {
 			return fmt.Errorf("unexpected value for field IpaallowedtoperformReadKeysUser: %v (%v)", raw, reflect.TypeOf(raw))
@@ -99121,7 +99131,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 
 	}
 
-	if true {
+	if in.IpaallowedtoperformReadKeysGroup != nil {
 		raw := in.IpaallowedtoperformReadKeysGroup
 		plainV, plainOk := raw.(string)
 		sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -99143,13 +99153,14 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 		}
 
 		if plainOk {
-			out.IpaallowedtoperformReadKeysGroup = plainV
+			out.IpaallowedtoperformReadKeysGroup = &plainV
 		} else if sliceOk {
 
-			if len(sliceV) != 1 {
-				return fmt.Errorf("unexpected value for field IpaallowedtoperformReadKeysGroup: %v; expected exactly one element", raw)
+			if len(sliceV) == 1 {
+				out.IpaallowedtoperformReadKeysGroup = &sliceV[0]
+			} else if len(sliceV) > 1 {
+				return fmt.Errorf("unexpected value for field IpaallowedtoperformReadKeysGroup: %v; expected at most one element", raw)
 			}
-			out.IpaallowedtoperformReadKeysGroup = sliceV[0]
 
 		} else {
 			return fmt.Errorf("unexpected value for field IpaallowedtoperformReadKeysGroup: %v (%v)", raw, reflect.TypeOf(raw))
@@ -99157,7 +99168,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 
 	}
 
-	if true {
+	if in.IpaallowedtoperformReadKeysHost != nil {
 		raw := in.IpaallowedtoperformReadKeysHost
 		plainV, plainOk := raw.(string)
 		sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -99179,13 +99190,14 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 		}
 
 		if plainOk {
-			out.IpaallowedtoperformReadKeysHost = plainV
+			out.IpaallowedtoperformReadKeysHost = &plainV
 		} else if sliceOk {
 
-			if len(sliceV) != 1 {
-				return fmt.Errorf("unexpected value for field IpaallowedtoperformReadKeysHost: %v; expected exactly one element", raw)
+			if len(sliceV) == 1 {
+				out.IpaallowedtoperformReadKeysHost = &sliceV[0]
+			} else if len(sliceV) > 1 {
+				return fmt.Errorf("unexpected value for field IpaallowedtoperformReadKeysHost: %v; expected at most one element", raw)
 			}
-			out.IpaallowedtoperformReadKeysHost = sliceV[0]
 
 		} else {
 			return fmt.Errorf("unexpected value for field IpaallowedtoperformReadKeysHost: %v (%v)", raw, reflect.TypeOf(raw))
@@ -99193,7 +99205,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 
 	}
 
-	if true {
+	if in.IpaallowedtoperformReadKeysHostgroup != nil {
 		raw := in.IpaallowedtoperformReadKeysHostgroup
 		plainV, plainOk := raw.(string)
 		sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -99215,13 +99227,14 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 		}
 
 		if plainOk {
-			out.IpaallowedtoperformReadKeysHostgroup = plainV
+			out.IpaallowedtoperformReadKeysHostgroup = &plainV
 		} else if sliceOk {
 
-			if len(sliceV) != 1 {
-				return fmt.Errorf("unexpected value for field IpaallowedtoperformReadKeysHostgroup: %v; expected exactly one element", raw)
+			if len(sliceV) == 1 {
+				out.IpaallowedtoperformReadKeysHostgroup = &sliceV[0]
+			} else if len(sliceV) > 1 {
+				return fmt.Errorf("unexpected value for field IpaallowedtoperformReadKeysHostgroup: %v; expected at most one element", raw)
 			}
-			out.IpaallowedtoperformReadKeysHostgroup = sliceV[0]
 
 		} else {
 			return fmt.Errorf("unexpected value for field IpaallowedtoperformReadKeysHostgroup: %v (%v)", raw, reflect.TypeOf(raw))
@@ -99229,7 +99242,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 
 	}
 
-	if true {
+	if in.IpaallowedtoperformWriteKeysUser != nil {
 		raw := in.IpaallowedtoperformWriteKeysUser
 		plainV, plainOk := raw.(string)
 		sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -99251,13 +99264,14 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 		}
 
 		if plainOk {
-			out.IpaallowedtoperformWriteKeysUser = plainV
+			out.IpaallowedtoperformWriteKeysUser = &plainV
 		} else if sliceOk {
 
-			if len(sliceV) != 1 {
-				return fmt.Errorf("unexpected value for field IpaallowedtoperformWriteKeysUser: %v; expected exactly one element", raw)
+			if len(sliceV) == 1 {
+				out.IpaallowedtoperformWriteKeysUser = &sliceV[0]
+			} else if len(sliceV) > 1 {
+				return fmt.Errorf("unexpected value for field IpaallowedtoperformWriteKeysUser: %v; expected at most one element", raw)
 			}
-			out.IpaallowedtoperformWriteKeysUser = sliceV[0]
 
 		} else {
 			return fmt.Errorf("unexpected value for field IpaallowedtoperformWriteKeysUser: %v (%v)", raw, reflect.TypeOf(raw))
@@ -99265,7 +99279,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 
 	}
 
-	if true {
+	if in.IpaallowedtoperformWriteKeysGroup != nil {
 		raw := in.IpaallowedtoperformWriteKeysGroup
 		plainV, plainOk := raw.(string)
 		sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -99287,13 +99301,14 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 		}
 
 		if plainOk {
-			out.IpaallowedtoperformWriteKeysGroup = plainV
+			out.IpaallowedtoperformWriteKeysGroup = &plainV
 		} else if sliceOk {
 
-			if len(sliceV) != 1 {
-				return fmt.Errorf("unexpected value for field IpaallowedtoperformWriteKeysGroup: %v; expected exactly one element", raw)
+			if len(sliceV) == 1 {
+				out.IpaallowedtoperformWriteKeysGroup = &sliceV[0]
+			} else if len(sliceV) > 1 {
+				return fmt.Errorf("unexpected value for field IpaallowedtoperformWriteKeysGroup: %v; expected at most one element", raw)
 			}
-			out.IpaallowedtoperformWriteKeysGroup = sliceV[0]
 
 		} else {
 			return fmt.Errorf("unexpected value for field IpaallowedtoperformWriteKeysGroup: %v (%v)", raw, reflect.TypeOf(raw))
@@ -99301,7 +99316,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 
 	}
 
-	if true {
+	if in.IpaallowedtoperformWriteKeysHost != nil {
 		raw := in.IpaallowedtoperformWriteKeysHost
 		plainV, plainOk := raw.(string)
 		sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -99323,13 +99338,14 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 		}
 
 		if plainOk {
-			out.IpaallowedtoperformWriteKeysHost = plainV
+			out.IpaallowedtoperformWriteKeysHost = &plainV
 		} else if sliceOk {
 
-			if len(sliceV) != 1 {
-				return fmt.Errorf("unexpected value for field IpaallowedtoperformWriteKeysHost: %v; expected exactly one element", raw)
+			if len(sliceV) == 1 {
+				out.IpaallowedtoperformWriteKeysHost = &sliceV[0]
+			} else if len(sliceV) > 1 {
+				return fmt.Errorf("unexpected value for field IpaallowedtoperformWriteKeysHost: %v; expected at most one element", raw)
 			}
-			out.IpaallowedtoperformWriteKeysHost = sliceV[0]
 
 		} else {
 			return fmt.Errorf("unexpected value for field IpaallowedtoperformWriteKeysHost: %v (%v)", raw, reflect.TypeOf(raw))
@@ -99337,7 +99353,7 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 
 	}
 
-	if true {
+	if in.IpaallowedtoperformWriteKeysHostgroup != nil {
 		raw := in.IpaallowedtoperformWriteKeysHostgroup
 		plainV, plainOk := raw.(string)
 		sliceWrapperV, sliceWrapperOk := raw.([]interface{})
@@ -99359,13 +99375,14 @@ func (out *Service) UnmarshalJSON(data []byte) error {
 		}
 
 		if plainOk {
-			out.IpaallowedtoperformWriteKeysHostgroup = plainV
+			out.IpaallowedtoperformWriteKeysHostgroup = &plainV
 		} else if sliceOk {
 
-			if len(sliceV) != 1 {
-				return fmt.Errorf("unexpected value for field IpaallowedtoperformWriteKeysHostgroup: %v; expected exactly one element", raw)
+			if len(sliceV) == 1 {
+				out.IpaallowedtoperformWriteKeysHostgroup = &sliceV[0]
+			} else if len(sliceV) > 1 {
+				return fmt.Errorf("unexpected value for field IpaallowedtoperformWriteKeysHostgroup: %v; expected at most one element", raw)
 			}
-			out.IpaallowedtoperformWriteKeysHostgroup = sliceV[0]
 
 		} else {
 			return fmt.Errorf("unexpected value for field IpaallowedtoperformWriteKeysHostgroup: %v (%v)", raw, reflect.TypeOf(raw))
