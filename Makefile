@@ -50,6 +50,7 @@ dump-errors: ## Download the errors json file from GitHub
 
 
 .PHONY: gen
-gen: dump-schema dump-errors  ## Regenerate the code for the client.
+gen: ## Regenerate the code for the client.
 	cd gen && go run ./...
+	go fmt ./freeipa/generated.go
 
