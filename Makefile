@@ -3,11 +3,11 @@
 # TODO: Can we get these from an env var?
 
 # Your IPA Host url.  NOTE: No trailing slash
-IPA_HOST=https://your.ipa.server.here
+IPA_HOST=https://ipa.dev.iad2.dc.paas.redhat.com
 
 # Your ipa_session cookie.
 # This will change regularly.  See `developing.md` for how to get this value.
-COOKIE=MagBearerToken=Your_cookie_here
+COOKIE=MagBearerToken=WuAc5m2kymwQ6mh1Vbu7xEBv23YjjNCwyxGcxpJWnqt265j7cJIdIMcWt1pF9yOJl3S1ytiOk4ADZmvOUTXF6dzI5IpxrjXJLX2AB%2bRSPAMgGLgAZOQAhk5C%2b4waZl7hJLIPxngXdSrl9u%2bv69Bio2qx2Y40F%2fEYjOfP0M9UToQBv8UeV7Tr018n0mOYynh9bKs1V6N2ANCHHokQRxgUtA%3d%3d
 
 
 SHELL = /usr/bin/env bash -o pipefail
